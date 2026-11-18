@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Abhinav Aggarwal · Website Developer Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Website developer portfolio — fast, mobile-friendly websites for brands, online stores and coaches.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" media="print" onload="this.media='all'">
+  <style>
+    :root {
+      /* Brown & White Premium Light Theme */
+      --bg: #FAF8F5;
+      --bg-elevated: #FFFFFF;
+      --bg-subtle: #F3F0EB;
+      --border: #E8E3DC;
+      --border-strong: #D9D3CB;
+      --fg: #1A1816;
+      --fg-muted: #6B655E;
+      --fg-subtle: #9B948A;
+      --accent: #8B6B4A;
+      --accent-hover: #7A5D42;
+      --accent-light: #F5EFEB;
+      --accent-dim: rgba(139, 107, 74, 0.1);
+      --shadow-sm: 0 1px 2px rgba(26, 24, 22, 0.04);
+      --shadow-md: 0 4px 12px rgba(26, 24, 22, 0.06);
+      --shadow-lg: 0 12px 32px rgba(26, 24, 22, 0.08);
+      --shadow-xl: 0 20px 48px rgba(26, 24, 22, 0.1);
+      --card-radius: 16px;
+      --card-radius-lg: 20px;
+      --card-radius-xl: 24px;
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-7: 28px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-14: 56px;
+      --space-16: 64px;
+      --space-20: 80px;
+      --space-24: 96px;
+      --space-28: 112px;
+      --space-32: 128px;
+      --container: 1200px;
+      --container-narrow: 960px;
+      --nav-h: 80px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --duration-slow: 350ms;
+      --duration-entrance: 600ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :root {
+        --duration-fast: 0ms;
+        --duration-normal: 0ms;
+        --duration-slow: 0ms;
+        --duration-entrance: 0ms;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    ::selection { background: var(--accent); color: #fff; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; border: 2px solid var(--bg); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Entrance animations */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scale-in {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slide-in-right {
+      from { opacity: 0; transform: translateX(16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes accent-line {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .animate-entrance {
+      animation: fade-up var(--duration-entrance) var(--ease-out) forwards;
+      opacity: 0;
+    }
+
+    .animate-entrance-delay-1 { animation-delay: 80ms; }
+    .animate-entrance-delay-2 { animation-delay: 160ms; }
+    .animate-entrance-delay-3 { animation-delay: 240ms; }
+    .animate-entrance-delay-4 { animation-delay: 320ms; }
+    .animate-entrance-delay-5 { animation-delay: 400ms; }
+    .animate-entrance-delay-6 { animation-delay: 480ms; }
+    .animate-entrance-delay-7 { animation-delay: 560ms; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 60ms; }
+    .reveal-delay-2 { transition-delay: 120ms; }
+    .reveal-delay-3 { transition-delay: 180ms; }
+    .reveal-delay-4 { transition-delay: 240ms; }
+    .reveal-delay-5 { transition-delay: 300ms; }
+    .reveal-delay-6 { transition-delay: 360ms; }
+
+    /* Layout */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .container-narrow {
+      max-width: var(--container-narrow);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .section { padding: var(--space-28) 0; }
+    .section-sm { padding: var(--space-20) 0; }
+    .section-lg { padding: var(--space-32) 0; }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6) var(--space-8);
+      height: var(--nav-h);
+      flex-wrap: wrap;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: -0.015em;
+      color: var(--fg);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .nav-brand:hover { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-1) var(--space-8);
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--fg-muted);
+      text-decoration: none;
+      padding: var(--space-2) var(--space-1);
+      position: relative;
+      transition: color var(--duration-fast) var(--ease-out);
+      border-radius: var(--space-1);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: var(--space-1); left: var(--space-1); right: var(--space-1);
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      border-radius: 2px;
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      border-radius: 100px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 107, 74, 0.3);
+      background: var(--accent-hover);
+    }
+
+    .nav-cta:active { transform: translateY(0); }
+
+    /* Hero */
+    .hero {
+      padding-top: calc(var(--nav-h) + var(--space-24));
+      padding-bottom: var(--space-24);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      animation: accent-line var(--duration-slow) var(--ease-out) forwards;
+    }
+
+    .hero h1 {
+      margin: var(--space-7) 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(44px, 7.5vw, 84px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      max-width: 920px;
+      color: var(--fg);
+    }
+
+    .hero p {
+      margin: 0 0 var(--space-8);
+      max-width: 680px;
+      font-size: 21px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-8);
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out), border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(139, 107, 74, 0.25);
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      border-color: var(--border-strong);
+      color: var(--fg);
+      background: var(--bg-elevated);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .btn:active { transform: translateY(0); }
+
+    .btn-outline {
+      border-color: var(--border-strong);
+      color: var(--fg);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-8) var(--space-16);
+      padding-top: var(--space-10);
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .hero-stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.05;
+      color: var(--fg);
+    }
+
+    .hero-stat-label {
+      font-size: 15px;
+      color: var(--fg-subtle);
+      font-weight: 500;
+    }
+
+    /* Section Header */
+    .section-header {
+      margin-bottom: var(--space-14);
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-3);
+    }
+
+    .section-tag::before {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4.5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 780px;
+      color: var(--fg);
+    }
+
+    .section-desc {
+      margin: var(--space-4) 0 0;
+      max-width: 640px;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .service-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition: transform var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .service-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .service-title {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+      color: var(--fg);
+    }
+
+    .service-desc {
+      margin: 0;
+      color: var(--fg-muted);
+      font-size: 17px;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    /* Work / Projects - Categorized */
+    .work-category {
+      margin-bottom: var(--space-24);
+    }
+
+    .work-category:last-child { margin-bottom: 0; }
+
+    .category-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.15;
+      color: var(--fg);
+    }
+
+    .category-count {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--fg-subtle);
+      background: var(--bg-subtle);
+      padding: var(--space-1) var(--space-3);
+      border-radius: 100px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .project-card {
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--duration-normal) var(--ease-out);
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-xl), 0 0 0 1px var(--accent);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-thumbnail {
+      aspect-ratio: 16 / 10;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-slow) var(--ease-out);
+    }
+
+    .project-card:hover .project-thumbnail img {
+      transform: scale(1.05);
+    }
+
+    .project-thumbnail-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bg-subtle) 0%, var(--accent-light) 100%);
+      color: var(--fg-subtle);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .project-content {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      flex: 1;
+    }
+
+    .project-tag {
+      align-self: flex-start;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: var(--space-1) var(--space-3);
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      transition: background var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out), transform var(--duration-fast) var(--ease-spring);
+    }
+
+    .project-card:hover .project-tag {
+      background: var(--accent);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .project-title {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.25;
+      color: var(--fg);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .project-card:hover .project-title { color: var(--accent); }
+
+    .project-desc {
+      margin: 0;
+      color: var(--fg-muted);
+      font-size: 16px;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--accent);
+      transition: gap var(--duration-fast) var(--ease-spring);
+    }
+
+    .project-card:hover .project-link { gap: var(--space-3); }
+
+    .testimonial-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius-lg);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .testimonial-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.35;
+      color: var(--fg);
+    }
+
+    .testimonial-author {
+      font-size: 15px;
+      color: var(--fg-subtle);
+      font-style: normal;
+    }
+
+    .testimonial-author strong { color: var(--fg); font-weight: 600; }
+
+    /* Process */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-8);
+      counter-reset: process-step;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding: var(--space-6) var(--space-6) var(--space-6) var(--space-14);
+      border-left: 3px solid var(--accent);
+      background: var(--bg-elevated);
+      border-radius: 0 var(--card-radius) var(--card-radius) 0;
+      border: 1px solid var(--border);
+      border-left-width: 3px;
+      border-left-color: var(--accent);
+      position: relative;
+      transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal) var(--ease-out), border-color var(--duration-normal) var(--ease-out);
+    }
+
+    .process-step:hover {
+      transform: translateX(8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-strong);
+      border-left-color: var(--accent);
+    }
+
+    .process-step::before {
+      content: counter(process-step);
+      counter-increment: process-step;
+      position: absolute;
+      left: -32px;
+      top: var(--space-6);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(139, 107, 74, 0.3);
+      flex-shrink: 0;
+    }
+
+    .process-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--fg);
+    }
+
+    .process-desc {
+      margin: 0;
+      color: var(--fg-muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius-xl);
+      padding: clamp(var(--space-10), 7vw, var(--space-16));
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+
+    .contact-title {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 5.5vw, 60px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      max-width: 800px;
+      color: var(--fg);
+    }
+
+    .contact-desc {
+      margin: 0;
+      max-width: 600px;
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--fg-muted);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-6) var(--space-12);
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      min-width: 200px;
+    }
+
+    .contact-label {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--fg-subtle);
+    }
+
+    .contact-value {
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--fg);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .contact-value:hover { color: var(--accent); }
+
+    /* Footer */
+    .footer {
+      padding: var(--space-10) 0 var(--space-14);
+      border-top: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: 14px;
+      color: var(--fg-subtle);
+    }
+
+    .footer-brand {
+      font-weight: 500;
+      color: var(--fg-muted);
+    }
+
+    /* Focus states */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .btn:focus-visible { outline-offset: 4px; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      :root {
+        --container: 100%;
+        --nav-h: 72px;
+      }
+
+      .hero { padding-top: calc(var(--nav-h) + var(--space-20)); }
+      .section { padding: var(--space-24) 0; }
+      .section-lg { padding: var(--space-28) 0; }
+      .services-grid, .projects-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+      .process-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .hero { padding-top: calc(var(--nav-h) + var(--space-16)); padding-bottom: var(--space-16); }
+      .hero h1 { font-size: clamp(36px, 9vw, 56px); }
+      .hero p { font-size: 18px; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-stats { gap: var(--space-6) var(--space-10); }
+
+      .section { padding: var(--space-20) 0; }
+      .section-lg { padding: var(--space-24) 0; }
+
+      .services-grid, .projects-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+
+      .category-header { flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+
+      .contact-info { flex-direction: column; gap: var(--space-4); }
+    }
+
+    @media (max-width: 480px) {
+      .btn { padding: var(--space-3) var(--space-6); font-size: 16px; }
+
+      .project-thumbnail { aspect-ratio: 16 / 9; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#" class="nav-brand" aria-label="Home">Abhinav Aggarwal</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Get a free quote</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="animate-entrance">
+        <span class="hero-badge">Website Developer · New Delhi</span>
+      </div>
+      <h1 class="animate-entrance animate-entrance-delay-1">Websites that bring you customers, not just compliments.</h1>
+      <p class="animate-entrance animate-entrance-delay-2">I design and build fast, mobile-friendly websites for brands, online stores and coaches — from the first sketch to launch and the support after it.</p>
+      <div class="hero-actions animate-entrance animate-entrance-delay-3">
+        <a href="#contact" class="btn btn-primary">Get a free quote</a>
+        <a href="#work" class="btn btn-secondary">See my work</a>
+      </div>
+      <div class="hero-stats animate-entrance animate-entrance-delay-4">
+        <div class="hero-stat">
+          <span class="hero-stat-value">13</span>
+          <span class="hero-stat-label">Live projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">4+</span>
+          <span class="hero-stat-label">Years experience</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">50+</span>
+          <span class="hero-stat-label">Businesses served</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Services -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-tag">What I do</span>
+          <h2 id="services-title" class="section-title">Everything your business needs to look good and sell online.</h2>
+        </header>
+        <div class="services-grid">
+          <article class="service-card reveal reveal-delay-1">
+            <span class="service-number">01</span>
+            <h3 class="service-title">Business Websites</h3>
+            <p class="service-desc">Clear, professional sites that tell people who you are, what you offer, and how to reach you.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-2">
+            <span class="service-number">02</span>
+            <h3 class="service-title">E-commerce Stores</h3>
+            <p class="service-desc">Online shops with product pages, smooth checkout, and payments that work for your customers.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-3">
+            <span class="service-number">03</span>
+            <h3 class="service-title">Landing Pages & Funnels</h3>
+            <p class="service-desc">Focused pages built to turn visitors from ads or campaigns into registrations, bookings, or sales.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-4">
+            <span class="service-number">04</span>
+            <h3 class="service-title">Website Redesign</h3>
+            <p class="service-desc">Already have a site that looks dated or loads slowly? I give it a fresh look and a faster foundation.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-5">
+            <span class="service-number">05</span>
+            <h3 class="service-title">Speed & SEO Basics</h3>
+            <p class="service-desc">Fast loading, clean structure, and the on-page basics that help people find you on Google.</p>
+          </article>
+          <article class="service-card reveal reveal-delay-6">
+            <span class="service-number">06</span>
+            <h3 class="service-title">Maintenance & Support</h3>
+            <p class="service-desc">Updates, fixes, and changes handled for you — so your site stays current without the hassle.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Previous Works - Categorized -->
+    <section id="work" class="section-lg" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-tag">Selected work</span>
+          <h2 id="work-title" class="section-title">Real websites, live today.</h2>
+          <p class="section-desc">From online stores to brand sites and sales funnels. Each project opens live — click to explore.</p>
+        </header>
+
+        <!-- E-commerce -->
+        <div class="work-category reveal reveal-delay-1" id="ecommerce">
+          <div class="category-header">
+            <h3 class="category-title">E-commerce</h3>
+            <span class="category-count">7 projects</span>
+          </div>
+          <div class="projects-grid" id="projects-ecommerce"></div>
+        </div>
+
+        <!-- Brand Websites -->
+        <div class="work-category reveal reveal-delay-2" id="brand">
+          <div class="category-header">
+            <h3 class="category-title">Brand Websites</h3>
+            <span class="category-count">2 projects</span>
+          </div>
+          <div class="projects-grid" id="projects-brand"></div>
+        </div>
+
+        <!-- Landing Pages -->
+        <div class="work-category reveal reveal-delay-3" id="landing">
+          <div class="category-header">
+            <h3 class="category-title">Landing Pages</h3>
+            <span class="category-count">4 projects</span>
+          </div>
+          <div class="projects-grid" id="projects-landing"></div>
+        </div>
+
+        <!-- Testimonial -->
+        <article class="testimonial-card reveal reveal-delay-4" style="margin-top: var(--space-10); max-width: 720px;">
+          <blockquote class="testimonial-text">"Manan delivered our e-commerce site ahead of schedule with exceptional attention to detail. The site performs beautifully and our conversion rate increased 34% post-launch."</blockquote>
+          <cite class="testimonial-author"><strong>Founder, Kalki Fashion</strong></cite>
+        </article>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="section-tag">How it works</span>
+          <h2 id="process-title" class="section-title">Simple, clear and on schedule.</h2>
+        </header>
+        <div class="process-grid">
+          <div class="process-step reveal reveal-delay-1">
+            <h3 class="process-title">1. Discover</h3>
+            <p class="process-desc">We talk about your business, your customers, and what the website needs to achieve.</p>
+          </div>
+          <div class="process-step reveal reveal-delay-2">
+            <h3 class="process-title">2. Design</h3>
+            <p class="process-desc">You see a design of your pages before anything is built, and we refine it together.</p>
+          </div>
+          <div class="process-step reveal reveal-delay-3">
+            <h3 class="process-title">3. Build</h3>
+            <p class="process-desc">I develop the site, test it on phones and laptops, and share a preview link for your feedback.</p>
+          </div>
+          <div class="process-step reveal reveal-delay-4">
+            <h3 class="process-title">4. Launch & Support</h3>
+            <p class="process-desc">Your site goes live, and I stay available for changes and fixes afterwards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section-sm" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h2 id="contact-title" class="contact-title">Let&apos;s build a website your business can grow on.</h2>
+          <p class="contact-desc">Tell me about your business and I&apos;ll send you a free, no-obligation quote within 24 hours.</p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:abhinav@abhinavaggarwal.in" class="contact-value">abhinav@abhinavaggarwal.in</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Phone / WhatsApp</span>
+              <a href="tel:+919528913869" class="contact-value">+91 95289 13869</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Based in</span>
+              <span class="contact-value">New Delhi, India</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-brand">Abhinav Aggarwal · Website Development</p>
+      <p>© 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Project data with categories and thumbnail placeholders
+    const projects = [
+      // E-commerce
+      { category: 'ecommerce', name: 'Kalki Fashion', tag: 'E-commerce', host: 'in.kalkifashion.com', url: 'https://in.kalkifashion.com/', desc: 'Online store for an Indian ethnic and designer wear brand, with filters, wishlist, order tracking and video shopping.', thumbnail: './kalki.png' },
+      { category: 'ecommerce', name: 'Snitch', tag: 'E-commerce', host: 'snitch.com', url: 'https://www.snitch.com/', desc: "Fast online store for a men's fashion brand, built around new arrivals, easy browsing and a simple shopping bag.", thumbnail: './snitch.png' },
+      { category: 'ecommerce', name: 'Gaatha', tag: 'E-commerce', host: 'shop.gaatha.com', url: 'https://shop.gaatha.com/', desc: 'Storefront for handmade Indian crafts, from handloom sarees to home decor, with international delivery.', thumbnail: './gaatha.png' },
+      { category: 'ecommerce', name: 'Pragya Essentials', tag: 'E-commerce', host: 'pragyaonline.com', url: 'https://www.pragyaonline.com', desc: 'Online store for a stationery maker, with notebooks, diaries and pens, plus corporate gifting and export enquiries.', thumbnail: './pragya.png' },
+      { category: 'ecommerce', name: 'Zam Zam Sweets', tag: 'E-commerce', host: 'zamzamsweet.com', url: 'https://zamzamsweet.com/', desc: 'Online ordering for a Mumbai mithai maker, including festive hampers, custom packaging and order tracking.', thumbnail: './zamzam.png' },
+      { category: 'ecommerce', name: 'Richlook Appliances', tag: 'E-commerce', host: 'richlookappliances.com', url: 'https://richlookappliances.com/', desc: 'Store for kitchen and home appliances, with combo deals, recipes, warranty registration and bulk order enquiries.', thumbnail: './richlook.png' },
+      { category: 'ecommerce', name: 'Sausome', tag: 'E-commerce', host: 'sausome.in', url: 'https://www.sausome.in/', desc: 'Store for a condiments and noodle-kit brand, with bundles, recipes and a creator community.', thumbnail: './sausome.png' },
+
+      // Brand Websites
+      { category: 'brand', name: 'Banas Dairy', tag: 'Brand website', host: 'banasdairy.coop', url: 'https://www.banasdairy.coop/', desc: "Website for India's largest dairy cooperative, presenting its products and its 3.6 million farmer families.", thumbnail: './banas.png' },
+      { category: 'brand', name: 'Atomik Growth', tag: 'Brand website', host: 'atomikgrowth.com', url: 'https://www.atomikgrowth.com/', desc: 'Services site for a media agency serving tech companies and investors, built to drive intro-call bookings.', thumbnail: './atomik.png' },
+
+      // Landing Pages
+      { category: 'landing', name: 'Smita Nair', tag: 'Landing page', host: 'smitanair.com', url: 'https://smitanair.com/', desc: 'Personal brand landing page for a wellness coach, featuring program sign-ups and client testimonials.', thumbnail: './smitanair.png' },
+      { category: 'landing', name: 'Coach Yogesh Vats', tag: 'Landing page', host: 'coachyogeshvats.com', url: 'https://coachyogeshvats.com', desc: 'Registration page for a free live AI masterclass aimed at project management professionals.', thumbnail: './yogestvats.png' },
+      { category: 'landing', name: 'JIRA with AI Masterclass', tag: 'Landing page', host: 'coachyogeshvats.com/jira-ai', url: 'https://coachyogeshvats.com/jira-ai/', desc: 'Sales page for a paid live workshop, with a clear offer and a single registration action.', thumbnail: './jira.png' },
+      { category: 'landing', name: '1% Club Masterclass', tag: 'Landing page', host: 'onepercentclub.io', url: 'https://www.onepercentclub.io/masterclass/', desc: 'Booking page for live personal finance masterclasses on investing, tax and retirement.', thumbnail: './onepercent.png' }
+    ];
+
+    // Group projects by category
+    const categories = {
+      ecommerce: projects.filter(p => p.category === 'ecommerce'),
+      brand: projects.filter(p => p.category === 'brand'),
+      landing: projects.filter(p => p.category === 'landing')
+    };
+
+    // Render projects per category
+    Object.entries(categories).forEach(([cat, catProjects]) => {
+      const grid = document.getElementById(`projects-${cat}`);
+      if (!grid) return;
+
+      catProjects.forEach((p, i) => {
+        const card = document.createElement('a');
+        card.href = p.url;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.className = 'project-card reveal';
+        card.style.transitionDelay = `${Math.min(i * 70, 400)}ms`;
+
+        // Normalize thumbnail path for Vercel (serves public/ at root)
+        let thumbSrc = p.thumbnail;
+        if (thumbSrc && thumbSrc.startsWith('./')) {
+          thumbSrc = thumbSrc.slice(1); // './kalki.png' -> '/kalki.png'
+        }
+        const hasThumbnail = thumbSrc && typeof thumbSrc === 'string' && thumbSrc.trim().length > 0;
+        const thumbnailHtml = hasThumbnail
+          ? `<img src="${thumbSrc}" alt="${p.name} preview" loading="lazy" width="640" height="400">`
+          : `<div class="project-thumbnail-placeholder">Add screenshot for ${p.name}</div>`;
+
+        card.innerHTML = `
+          <div class="project-thumbnail">
+            ${thumbnailHtml}
+          </div>
+          <div class="project-content">
+            <span class="project-tag">${p.tag}</span>
+            <h3 class="project-title">${p.name}</h3>
+            <p class="project-desc">${p.desc}</p>
+            <span class="project-link">${p.host} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    });
+
+    // Intersection Observer for scroll reveals
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+      document.querySelectorAll('.reveal:not(.animate-entrance)').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    // Nav scroll state
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY > 20;
+      nav.classList.toggle('scrolled', scrolled);
+    }, { passive: true });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const navHeight = nav.offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Button ripple effect
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (prefersReducedMotion) return;
+        const rect = this.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.style.cssText = `
+          position: absolute;
+          width: 20px; height: 20px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.4);
+          transform: scale(0);
+          animation: ripple 400ms ease-out forwards;
+          left: ${e.clientX - rect.left}px;
+          top: ${e.clientY - rect.top}px;
+          pointer-events: none;
+        `;
+        this.style.position = 'relative';
+        this.style.overflow = 'hidden';
+        this.appendChild(ripple);
+        ripple.addEventListener('animationend', () => ripple.remove());
+      });
+    });
+
+    // Add ripple keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to { transform: scale(25); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Parallax hero stats on scroll
+    if (!prefersReducedMotion) {
+      const stats = document.querySelector('.hero-stats');
+      window.addEventListener('scroll', () => {
+        if (stats) {
+          const scrolled = window.scrollY;
+          const rate = scrolled * 0.12;
+          stats.style.transform = `translateY(${rate}px)`;
+        }
+      }, { passive: true });
+    }
+
+    // Add keyboard navigation for project cards
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const focused = document.activeElement;
+        if (focused && focused.classList.contains('project-card')) {
+          e.preventDefault();
+          focused.click();
+        }
+      }
+    });
+  </script>
+</body>
+</html>
